@@ -31,7 +31,7 @@ public class ContextServlet extends HttpServlet {
         //3. 获取工程部署后在服务器硬盘上的绝对路径
 
         // / 斜杠被服务器解析地址为http://ip:port/工程名/    映射到IDEA代码的web目录<br/>
-        System.out.println("工程部署的路径是：" + servletContext.getRealPath("/"));
+        System.out.println("工程部署路径是：" + servletContext.getRealPath("/"));
 
         System.out.println("工程下css目录的绝对路径是：" + servletContext.getRealPath("/css"));
     }
