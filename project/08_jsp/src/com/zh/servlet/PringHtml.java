@@ -4,6 +4,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.jsp.JspWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -13,6 +14,10 @@ import java.io.PrintWriter;
  * @create 2020-08-13 22:37
  */
 public class PringHtml extends HttpServlet {
+
+
+
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         // 通过响应的回传流回传html页面的数据
