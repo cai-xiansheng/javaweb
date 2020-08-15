@@ -4,6 +4,7 @@ import com.zh.utils.JdbcUtils;
 import org.junit.Test;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 
 /**
  * @author cai-xiansheng
@@ -20,4 +21,5 @@ public class JdbcUtilsTest {
             JdbcUtils.close(connection);
         }
     }
+
 }
