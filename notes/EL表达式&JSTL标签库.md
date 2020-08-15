@@ -195,3 +195,264 @@ EL表达式中11个隐含对象，是ELb表达式中自己定义的，可以直�
 
 ![image-20200815012428253](C:\Users\张辉\Desktop\javaweb\notes\EL表达式&JSTL标签库.assets\image-20200815012428253.png)
 
+# JSTL标签库（次重点）
+
+JSTL标签库全程是指 JSP Standard Tag Library (JSP标准标签库)。是一个不断完善的开放源代码的jsp标签库。
+
+EL表达式主要是为了替换JSP中的表达式脚本，而标签库则是为了替换代码脚本。这样使得整个jsp页面变得更加简洁。
+
+JSTL由五个不同功能的标签库组成。
+
+| 功能范围         | URI                                | 前缀 |
+| ---------------- | ---------------------------------- | ---- |
+| 核心标签库--重点 | http://java.sun/jsp/jstl/core      | c    |
+| 格式化           | http://java.sun/jsp/jstl/fmt       | fmt  |
+| 函数             | http://java.sun/jsp/jstl/functions | fn   |
+| 数据库（不使用） | http://java.sun/jsp/jstl/sql       | sql  |
+| XML(不使用)      | http://java.sun/jsp/hstl/xml       | x    |
+
+在jsp标签库中使用taglib指令引入标签库
+
++ Core标签库
+
++ xml标签库
++ FMT标签库
++ SQL标签库
++ FUNCTIONS标签库
+
+```jsp
+<%--Core标签库--%>
+<%@ taglib prefix="c" uri="http://java.sun/jsp/jstl/core"%>
+<%--xml标签库--%>
+<%@ taglib prefix="x" uri="http://java.sun/jsp/jstl/xml"%>
+<%--FMT标签库--%>
+<%@ taglib prefix="fmt" uri="http://java.sun/jsp/jstl/fml"%>
+<%--SQL标签库--%>
+<%@ taglib prefix="sql" uri="http://java.sun/jsp/jstl/sql"%>
+<%--FUNCTIONS标签库--%>
+<%@ taglib prefix="fn" uri="http://java.sun/jsp/jstl/functions"%>
+```
+
+## JSTL 标签库的使用步骤
+
+1. 先导入jstl标签库的jar包
+   + taglibs-standard-impl-1.2.1.jar
+   + taglibs-standard-spec-1.2.1.jar
+2. 第二步，使用taglib指令引入标签库。
+
+==<%@ taglib prefix="c" uri="http://java.sun/jsp/jstl/core"%>==
+
+## Core核心库使用
+
+### `<c:set/>`(很少使用)
+
+作用：set标签可以往域中保存数据
+
+```jsp
+<%--
+    作用：set标签可以往域中保存数据
+
+    域对象.setAttribute(key,value);
+    scope属性设置保存到哪个域
+        page表示PageContext域（默认值）
+        request表示Request域
+        session表示Session域
+        application表示ServletContext域
+    var属性设置key是多少
+    value属性设置值是多少
+--%>
+保存之前：${pageScope.abc}<br>
+<c:set scope="page" var="abc" value="cssfs"/>
+保存之后：${pageScope.abc}<br>
+```
+
+### `<c:if/>`
+
+if标签用来做if判断。
+
+```jsp
+<%--
+    <c:if/>
+    if标签用来做if判断。
+    test属性表示判断的条件（使用EL表达式输出）
+--%>
+
+<c:if test="${ 12 == 12}">
+    <h1>12==12</h1>
+</c:if>
+<c:if test="${ 12 != 12}">
+    <h1>12!=12</h1>
+</c:if>
+```
+
+### `<c:choose><c:when><c:otherwise>`标签
+
+作用：多路判断。跟switch...case...default非常接近
+
+```jsp
+<%--
+    <c:choose><c:when><c:otherwise>标签
+    作用：多路判断。跟switch...case...default非常接近
+
+    choose标签开始选择判断
+    when表示每一种判断情况
+        test表示当前判断情况的值
+    otherwise表示其他情况
+    <c:choose><c:when><c:otherwise>变迁使用时需要注意的点：
+        1. 标签里不能使用html注释，要使用jsp注释
+        2. when标签的父标签一定要使用choose标签
+--%>
+<%
+    request.setAttribute("height", 150);
+%>
+<c:choose>
+    <c:when test="${ requestScope.height > 190}">
+        <h2>小巨人</h2>
+    </c:when>
+    <c:when test="${ requestScope.height > 180}">
+        <h2>很高</h2>
+    </c:when>
+    <c:when test="${ requestScope.height > 170}">
+        <h2>还可以</h2>
+    </c:when>
+    <c:otherwise>
+        <c:choose>
+            <c:when test="${ requestScope.height > 160}">
+                <h2>大于160</h2>
+            </c:when>
+            <c:when test="${ requestScope.height > 150}">
+                <h2>大于150</h2>
+            </c:when>
+            <c:when test="${ requestScope.height > 140}">
+                <h2>大于140</h2>
+            </c:when>
+        </c:choose>
+    </c:otherwise>
+</c:choose>
+```
+
+### `<c:forEach/>`
+
+作用：遍历输出使用
+
+1. 遍历1到10输出
+
+```jsp
+<%--
+    1. 遍历1到10输出
+    begin属性设置开始的索引
+    end属性设置结束的缩影
+    var属性表示遍历的变量(也是当前正在遍历到的数据)
+    for(int i = 1; i < 10; i++)
+--%>
+<table border="1">
+    <c:forEach begin="1" end="10" var="i">
+        <tr>
+            <td>第${i}行</td>
+        </tr>
+    </c:forEach>
+</table>
+```
+
+2. 遍历Object数组
+
+```jsp
+<%--
+    2. 遍历Object数组
+    for(Object object:objects)
+    items表示遍历的数据源（遍历的集合）
+    var表示当前遍历到的数据
+--%>
+<%
+    request.setAttribute("arr", new String[]{"12431414", "15151651", "1515616"});
+%>
+<c:forEach items="${requestScope.arr}" var="item">
+    ${ item }<br>
+</c:forEach>
+```
+
+3. 遍历Map集合
+
+```jsp
+<%--
+    3.遍历Map集合
+--%>
+<%
+    Map<String, Object> map = new HashMap<>();
+    map.put("key1", "value1");
+    map.put("key2", "value2");
+    map.put("key3", "value3");
+    for (Map.Entry<String, Object> entry : map.entrySet()) {
+    }
+    request.setAttribute("map", map);
+%>
+<c:forEach items="${requestScope.map}" var="entry">
+    ${entry} ${entry.key} --- ${entry.value}<br>
+</c:forEach>
+```
+
+4. 遍历List集合---list中存放Student类，有属性：编号，用户名，密码，年龄，电话信息。
+
+StudentBean
+
+```java
+public class Student {
+    private Integer id;
+    private String username;
+    private String password;
+    private Integer age;
+    private String phone;
+
+```
+
+jsp
+
+```jsp
+<%--
+    4. 遍历List集合---list中存放Student类，有属性：编号，用户名，密码，年龄，电话信息。
+--%>
+<%
+    List<Student> studentList = new ArrayList<>();
+    for (int i = 1; i <= 10; i++) {
+        studentList.add(new Student(i, "username" + i, "password" + i, 15 + i, "145151phone" + i));
+    }
+    request.setAttribute("studentList", studentList);
+%>
+<table border="1">
+    <thead>
+    <tr>
+        <td>编号</td>
+        <td>姓名</td>
+        <td>密码</td>
+        <td>年龄</td>
+        <td>电话</td>
+        <td>操作</td>
+    </tr>
+    </thead>
+    <tbody>
+    <%--
+        items表示遍历的集合
+        var表示遍历到的数据
+        begin表示遍历的开始索引值
+        end表示结束的索引值
+        step属性表示遍历的步长值
+        varStatus 属性表示当前遍历到的数据的状态
+        for(int i = 0; i < 10; i+=2) {
+
+        }
+    --%>
+    <c:forEach begin="0" end="7" items="${requestScope.studentList}" var="student">
+        <%--${student}<br>--%>
+        <tr>
+            <td>${student.id}</td>
+            <td>${student.username}</td>
+            <td>${student.password}</td>
+            <td>${student.age}</td>
+            <td>${student.phone}</td>
+            <td>修改、删除</td>
+        </tr>
+    </c:forEach>
+    </tbody>
+</table>
+```
+
