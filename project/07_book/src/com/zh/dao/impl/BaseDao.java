@@ -86,10 +86,10 @@ public abstract class BaseDao {
      * @param args sql对应的参数值
      * @return 返回查询的一个值
      */
-    public Object queryForSingValue(String sql, Object... args) {
+    public Object queryForSingleValue(String sql, Object... args) {
         Connection connection = JdbcUtils.getConnection();
         try {
-            queryRunner.query(connection, sql, new ScalarHandler(), args);
+            return queryRunner.query(connection, sql, new ScalarHandler(), args);
         } catch (SQLException e) {
             e.printStackTrace();
         }finally {
@@ -97,5 +97,6 @@ public abstract class BaseDao {
         }
         return null;
     }
+
 
 }
