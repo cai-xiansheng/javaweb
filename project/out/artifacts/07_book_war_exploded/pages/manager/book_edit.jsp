@@ -32,6 +32,7 @@
 		
 		<div id="main">
 			<form action="manager/bookServlet" method="post">
+                <input type="hidden" name="pageNo" value="${param.pageNo}">
                 <input type="hidden" name="action" value="${empty requestScope.book ? "add" : "update"}">
                 <input type="hidden" name="id" value="${requestScope.book.id}">
 				<table>
@@ -42,7 +43,7 @@
 						<td>销量</td>
 						<td>库存</td>
 						<td colspan="2">操作</td>
-					</tr>		
+					</tr>
 					<tr>
 						<td><input name="name" type="text" value="${requestScope.book.name}"/></td>
 						<td><input name="price" type="text" value="${requestScope.book.price}"/></td>
@@ -50,7 +51,7 @@
 						<td><input name="sales" type="text" value="${requestScope.book.sales}"/></td>
 						<td><input name="stock" type="text" value="${requestScope.book.stock}"/></td>
 						<td><input type="submit" value="提交"/></td>
-					</tr>	
+					</tr>
 				</table>
 			</form>
 			
