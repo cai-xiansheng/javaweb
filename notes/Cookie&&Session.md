@@ -196,3 +196,90 @@ http://ip:port/工程路径/abc/a.html
 ## Cookie练习
 
 ![image-20200820170226344](Cookie&&Session.assets/image-20200820170226344.png)
+
+# Session会话
+
+## 什么是Session会话？
+
+1. Session就是一个接口（HttpSession）。
+2. Session就是会话。它是用来维护一个客户端和服务器之间关联的一种技术。
+3. 每个客户端都有自己的一个Session会话。
+4. Session会话中，我们经常用来保存用户登录之后的信息。
+
+## 如何创建Session和获取（id号，是否为新）
+
+1. 如何创建和获取Session。他们的API是一样的。
+2. request.getSession()
+   + 第一次调用是:创建Session会话
+   + 之后调用都是:获取前面创建好的Session会话对象.
+3. isNew():判断到底是不是刚创建出来的(新的)
+   + true:表示刚创建
+   + false:表示获取之后创建
+
+4. 每个会话都有一个身份证号,也就是ID值．而且这个ID是唯一的。
+5. getId()得到session的绘画id值。
+
+## Session域的数据的存取
+
+```java
+/**
+ * 获取Session域中获取数据
+ * @param req
+ * @param resp
+ * @throws ServletException
+ * @throws IOException
+ */
+protected void getAttribute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    Object key1 = req.getSession().getAttribute("key1");
+    resp.getWriter().write("从Session中获取到的key1的数据是：" + key1);
+}
+
+/**
+ * 向Session域中保存数据
+ * @param req
+ * @param resp
+ * @throws ServletException
+ * @throws IOException
+ */
+protected void setAttribute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    req.getSession().setAttribute("key1","value1");
+    resp.getWriter().write("已经往Session中部署了数据");
+}
+```
+
+## Session生命周期控制
+
+1. public void setMaxInactiveInterval(int interval) 设置Session的超时时间（以秒为单位），超过指定时长，session就会被销毁。
+2. 值为正数的时候，设定Session的超时时长。
+3. 值为负数的时候，表示永不超时（极少使用）
+
+4. public int getMaxInactiveInterval() 获取Session的超时时间。
+5. public void invalidate() 让当前Session绘画马上超时无效。
+
+
+
+Session默认的超时时长为30分钟。
+
+因为在Tomcat服务器的配置文件web.xml中默认有以下的配置，他就表示配置了当前Tomcat服务器下所有的Session超时配置默认时长为：30分钟。
+
+<session-config>
+
+​	<session-timeout>30</session-timeout>
+
+</session-config>
+
+如果说，你希望你的web工程，默认的Session的超时时长为其他时长。你可以在自己的web.xml配置文件中做以上相同的配置，就可以修改你的web工程所有的Session的默认超时时长。
+
+如果你想只修改个别Session的超时时长，就可以使员工上面的API。setMaxInactiveInterval(int interval)来进行单独的设置
+
+session.setMaxInactiveInterval(int interval)单独设置超时时长
+
+Session超时的概念介绍。
+
+![image-20200820193832603](Cookie&&Session.assets/image-20200820193832603.png)
+
+## 浏览器和Session之间的关联
+
+Session技术，底层是基于Cookie实现的。
+
+![image-20200820201203845](Cookie&&Session.assets/image-20200820201203845.png)
