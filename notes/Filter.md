@@ -20,9 +20,85 @@
 
 思考：根据之前我们学过内容。我们直到，用户登录之后都会把用户登录的信息都保存到Session域中。所以要检查用户是否登录，可以判断Session中是否包含有用户登录的信息即可！！！
 
+```jsp
+<%
+Object user = session.getAttribute("user");
+// 如果等于null。则说明没有登陆
+if (user == null) {
+    request.getRequestDispatcher("/login.jsp").forward(request,response);
+}
+%>
+```
+
 ## Filter的工作流程图
 
 ![image-20200822165455694](Filter.assets/image-20200822165455694.png)
+
+**Filter的代码**
+
+```java
+public class AdminFilter implements Filter {
+    @Override
+    public void init(FilterConfig filterConfig) throws ServletException {
+
+    }
+
+    /**
+     * doFilter方法，专门用来拦截请求。可以做权限检查
+     *
+     * @param servletRequest
+     * @param servletResponse
+     * @param filterChain
+     * @throws IOException
+     * @throws ServletException
+     */
+    @Override
+    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
+        HttpServletRequest httpServletRequest = (HttpServletRequest) servletRequest;
+        HttpSession session = httpServletRequest.getSession();
+        Object user = session.getAttribute("user");
+
+        if (user == null) {
+            servletRequest.getRequestDispatcher("/login.jsp").forward(servletRequest, servletResponse);
+            return;
+        } else {
+            // 让程序继续往下访问用户的目标资源
+            filterChain.doFilter(servletRequest, servletResponse);
+        }
+
+
+    }
+
+    @Override
+    public void destroy() {
+
+    }
+}
+```
+
+**web.xml中的配置**
+
+```xml
+    <!--filter标签用于配置一个Filter过滤器-->
+    <filter>
+        <!--给Filter起一个别名-->
+        <filter-name>AdminFilter</filter-name>
+        <!--给Filter配置一个全类名-->
+        <filter-class>com.zh.filter.AdminFilter</filter-class>
+    </filter>
+
+    <!--filter-mapping配置Filter过滤器的拦截路径-->
+    <filter-mapping>
+        <!--filter-name表示当前的拦截路径给哪个filter使用-->
+        <filter-name>AdminFilter</filter-name>
+        <!--
+            url-pattern配置拦截路径
+            / 表示请求地址为：http://ip:port/工程路径/  映射到IDEA的web路径
+            /admin/*  表示请求地址为：http://ip:port/工程路径/admin/*
+        -->
+        <url-pattern>/admin/*</url-pattern>
+    </filter-mapping>
+```
 
 ## Filter过滤器的使用步骤
 
@@ -51,6 +127,60 @@
    + 获取Filter的名称**filter-name**的内容
    + 获取在Filter中配置的**init-param**初始化参数
    + 获取ServletContext对象
+
+**java代码**
+
+```java
+ @Override
+    public void init(FilterConfig filterConfig) throws ServletException {
+        System.out.println("2. AdminFilter.init");
+        //+ 获取Filter的名称**filter-name**的内容
+        System.out.println("filter-name的值是：" + filterConfig.getFilterName());
+        //+ 获取在web.xml中配置的**init-param**初始化参数
+        System.out.println("初始化参数username是：" + filterConfig.getInitParameter("username"));
+        System.out.println("初始化参数url是：" + filterConfig.getInitParameter("url"));
+        //+ 获取ServletContext对象
+        System.out.println("ServletContext对象：" + filterConfig.getServletContext());
+    }
+```
+
+
+
+**web.xml配置**
+
+```xml
+    <!--filter标签用于配置一个Filter过滤器-->
+    <filter>
+        <!--给Filter起一个别名-->
+        <filter-name>AdminFilter</filter-name>
+        <!--给Filter配置一个全类名-->
+        <filter-class>com.zh.filter.AdminFilter</filter-class>
+
+        <init-param>
+            <param-name>username</param-name>
+            <param-value>root</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>url</param-name>
+            <param-value>jdbc:mysql://localhost:3306/test</param-value>
+        </init-param>
+    </filter>
+
+    <!--filter-mapping配置Filter过滤器的拦截路径-->
+    <filter-mapping>
+        <!--filter-name表示当前的拦截路径给哪个filter使用-->
+        <filter-name>AdminFilter</filter-name>
+        <!--
+            url-pattern配置拦截路径
+            / 表示请求地址为：http://ip:port/工程路径/  映射到IDEA的web路径
+            /admin/*  表示请求地址为：http://ip:port/工程路径/admin/*
+        -->
+        <url-pattern>/admin/*</url-pattern>
+    </filter-mapping>
+```
+
+
 
 # FilterChain过滤器链
 
