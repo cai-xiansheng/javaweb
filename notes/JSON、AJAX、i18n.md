@@ -1,0 +1,175 @@
+# JSON
+
+## 什么是JSON
+
+1. JSON(JavaScript Object Notation)是一种轻量级的数据交换格式。易于人阅读和编写。同时也易于机器解析和生成。JSON采用完全独立的文本格式，而且很多语言都提供了对JSON的支持（包括C，C++，C#，Java，JavaScript，Perl，Python等）。这样就使得JSON称为理想的数据交换格式。
+
+2. JSON是一种轻量级的数据交换格式
+3. 轻量级指的是跟xml作比较。
+4. 数据交换指的是客户端和服务器之间业务数据的传递格式。
+
+## JSON在JavaScript中的使用
+
+### json的定义
+
+1. json是由键值对，并且由花括号（大括号）包围。每个键由引号引起来，键和值之间使用冒号进行分隔，多组键值对之间进行逗号进行分隔。
+
+2. json定义示例：
+
+   ```json
+   var jsonObj = {
+       "key1": 12,
+       "key2": "abc",
+       "key3": true,
+       "key4": [11, "arr", false],
+       "key5": {
+   		"key5_1": 551,
+           "key5_2": "key5_2_value"
+       },
+       "key6": [
+           {
+               "key6_1_1": 6611,
+               "key6_1_2": "key6_1_2_value"
+           },
+           {
+               "key6_2_1": 6622,
+               "key6_2_2": "key6_2_2_value"
+           }
+       ]
+   };
+   ```
+
+   
+
+### json的访问
+
+1. json本身是一个对象
+2. json中的key，我们可以理解为是对象中的一个属性。
+3. json中的key访问就跟访问对象的属性一样：json对象.key
+4. json访问示例：
+
+```js
+alert(typeof(jsonObj));// object json 就是一个对象
+alert(jsonObj.key1); //12
+alert(jsonObj.key2); // abc
+alert(jsonObj.key3); // true
+alert(jsonObj.key4);// 得到数组[11,"arr",false]
+// json 中 数组值的遍历
+for(var i = 0; i < jsonObj.key4.length; i++) {
+	alert(jsonObj.key4[i]);
+}
+alert(jsonObj.key5.key5_1);//551
+alert(jsonObj.key5.key5_2);//key5_2_value
+alert( jsonObj.key6 );// 得到 json 数组
+// 取出来每一个元素都是 json 对象
+var jsonItem = jsonObj.key6[0];
+// alert( jsonItem.key6_1_1 ); //6611
+alert( jsonItem.key6_1_2 ); //key6_1_2_value
+```
+
+### json的两个常用方法
+
+1. json存在两种形式。
+2. 一种是：对象的形式存在，我们叫它json对象。
+3. 一种是：字符串的形式存在，我们叫它json字符串。
+4. 一般我们要操作json中的数据的时候。需要json对象的格式。
+5. 一般我们要在客户端和服务器之间进行数据交换的时候，使用json的字符串。
+6. **JSON.stringify()** 把json对象转换成为json字符串
+7. **JSON.parse()** 把json字符串转换成为json对象
+
+示例代码：
+
+```js
+// 把 json 对象转换成为 json 字符串
+var jsonObjString = JSON.stringify(jsonObj); // 特别像 Java 中对象的 toString
+alert(jsonObjString)
+// 把 json 字符串。转换成为 json 对象
+var jsonObj2 = JSON.parse(jsonObjString);
+alert(jsonObj2.key1);// 12
+alert(jsonObj2.key2);// abc
+```
+
+## JSON在Java中的使用
+
+### JavaBean和json的互转
+
+
+
+### List和json的互转
+
+
+
+### map和json的互传
+
+
+
+
+
+
+
+# AJAX请求
+
+## 什么是Ajax请求
+
+1. Ajax即“Asynchronous Javascript And XML”（异步JavaScript和XML），是指一种创建交互式网页开发技术。
+2. Ajax是一种浏览器通过js异步发起请求，局部更新新页面的技术。
+3. Ajax请求的局部更新，浏览器地址栏不会发生变化。
+4. 局部更新不会舍弃原来页面的内容。
+
+
+
+## 原生Ajax请求的示例
+
+
+
+
+
+## jQuery中的Ajax请求
+
+### **$.ajax方法**
+
+| url      | 表示请求的地址              |
+| -------- | --------------------------- |
+| type     | 表示请求的类型GET或POST请求 |
+| data     | 表示发送给服务器的数据      |
+| success  | 请求成功，响应的回调函数    |
+| dataType | 响应的数据类型              |
+
+**data**格式有两种
+
+1. name=value&name=value
+2. {key : value}
+
+**dataType**常用的数据类型有：
+
+1. text表示纯文本
+2. xml表示xml数据
+3. json表示json对象
+
+
+
+### $.get方法和$.post方法
+
+| url      | 请求的url地址  |
+| -------- | -------------- |
+| data     | 发送的数据     |
+| callback | 成功的回调函数 |
+| type     | 返回的数据类型 |
+
+
+
+### $.getJSON方法
+
+| url      | 请求的url地址      |
+| -------- | ------------------ |
+| data     | 发送给服务器的数据 |
+| callback | 成功的回调函数     |
+
+
+
+表单序列化**serialize()**
+
+**serialize()**可以把表单中所有表单项的内容都获取到，并以name=value&name=value的形式进行拼接。
+
+
+

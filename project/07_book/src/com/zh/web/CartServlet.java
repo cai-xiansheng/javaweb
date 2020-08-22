@@ -101,5 +101,6 @@ public class CartServlet extends BaseServlet {
         System.out.println(cart);
         // 重定向会商品列表
         resp.sendRedirect(req.getHeader("Referer"));
+        req.getSession().setAttribute("lastName", cartItem.getName());
     }
 }
