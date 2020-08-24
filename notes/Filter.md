@@ -223,3 +223,27 @@ FilterChain就是过滤器链（多个过滤器如何一起工作）
 
 
 Filter过滤器它只关心请求的地址是否匹配，不关心请求的资源是否存在！！！
+
+
+
+
+
+# ThreadLocal
+
+1. ThreadLoal的作用，他可以解决多线程的数据安全问题。
+2. TheadLoacl他可以给当前线程关联一个数据（可以是普通变量，可以是对象，也可以是数据，集合）
+
+3. ThreadLocal的特点：
+   + ThreadLocal可以为当前线程关联一个数据。（他可以像Map一样存取数据，key为当前线程）
+   + 每一个ThreadLocal对象，**只能为当前线程关联一个数据**（要想关联多个，必须new多个ThreadLocal），如果要为当前线程关联多个数据，就需要使用多个ThreadLocal对象实例
+   + 每个ThreadLocal 对象实例定义的时候，一般都是static类型
+   + ThreadLoacl中保存数据，在线程销毁后。会由JVM虚拟机自动释放
+
+
+
+
+
+# 将所有异常都统一交给Tomcat，让Tomcat展示友好的错误信息页面
+
+在web.xml中我们可以通过错误页面配置来进行管理
+

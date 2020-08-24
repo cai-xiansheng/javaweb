@@ -32,10 +32,8 @@ public abstract class BaseDao {
             return queryRunner.update(connection, sql, args);
         } catch (SQLException e) {
             e.printStackTrace();
-        } finally {
-            JdbcUtils.close(connection);
+            throw new RuntimeException(e);
         }
-        return -1;
     }
 
     /**
@@ -53,10 +51,8 @@ public abstract class BaseDao {
             return queryRunner.query(connection, sql, new BeanHandler<T>(type), args);
         } catch (SQLException e) {
             e.printStackTrace();
-        } finally {
-            JdbcUtils.close(connection);
+            throw new RuntimeException(e);
         }
-        return null;
     }
 
     /**
@@ -74,15 +70,14 @@ public abstract class BaseDao {
             return queryRunner.query(connection, sql, new BeanListHandler<T>(type), args);
         } catch (SQLException e) {
             e.printStackTrace();
-        } finally {
-            JdbcUtils.close(connection);
+            throw new RuntimeException(e);
         }
-        return null;
     }
 
     /**
      * 执行返回一行一列的sql语句
-     * @param sql 执行的sql语句
+     *
+     * @param sql  执行的sql语句
      * @param args sql对应的参数值
      * @return 返回查询的一个值
      */
@@ -92,10 +87,8 @@ public abstract class BaseDao {
             return queryRunner.query(connection, sql, new ScalarHandler(), args);
         } catch (SQLException e) {
             e.printStackTrace();
-        }finally {
-            JdbcUtils.close(connection);
+            throw new RuntimeException(e);
         }
-        return null;
     }
 
 
