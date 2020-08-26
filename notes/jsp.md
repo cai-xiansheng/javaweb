@@ -67,11 +67,11 @@ jsp页面的本质上是一个Servlet程序
 
 当我们第一次访问jsp页面的时候。Tomcat服务器会帮我们吧jsp页面翻译成一个java源文件。并且对它及性能编译成==.class==字节码程序。我们打开java源文件不难发现器里面的内容是：
 
-![image-20200813231629779](C:\Users\张辉\Desktop\javaweb\notes\jsp.assets\image-20200813231629779.png)
+![image-20200813231629779](jsp.assets\image-20200813231629779.png)
 
 我们跟踪源代码发现，HttpJspBase类。他直接继承了HttpServlet类，也就是说，jsp翻译出来的java类，它间接的继承了HttpServlet类。也就是说，翻译出来的是一个Servlet程序。
 
-![image-20200813231838654](C:\Users\张辉\Desktop\javaweb\notes\jsp.assets\image-20200813231838654.png)
+![image-20200813231838654](jsp.assets\image-20200813231838654.png)
 
 总结：通过翻译的Java源代码我们就可以得到结果：jsp就是Servlet程序。
 
@@ -283,7 +283,7 @@ jsp的page指令可以修改jsp页面中一些重要的属性，或者行为。
 
 声明脚本代码翻译对照
 
-![image-20200814085745740](C:\Users\张辉\Desktop\javaweb\notes\jsp.assets\image-20200814085745740.png)
+![image-20200814085745740](jsp.assets\image-20200814085745740.png)
 
 #### 表达式脚本（常用）
 
@@ -319,7 +319,7 @@ jsp的page指令可以修改jsp页面中一些重要的属性，或者行为。
 <%=map%>
 ```
 
-![image-20200814112955961](C:\Users\张辉\Desktop\javaweb\notes\jsp.assets\image-20200814112955961.png)
+![image-20200814112955961](jsp.assets\image-20200814112955961.png)
 
 #### 代码脚本
 
@@ -381,9 +381,9 @@ jsp的page指令可以修改jsp页面中一些重要的属性，或者行为。
 %>
 ```
 
-![image-20200814114336571](C:\Users\张辉\Desktop\javaweb\notes\jsp.assets\image-20200814114336571.png)
+![image-20200814114336571](jsp.assets\image-20200814114336571.png)
 
-![image-20200814115442940](C:\Users\张辉\Desktop\javaweb\notes\jsp.assets\image-20200814115442940.png)
+![image-20200814115442940](jsp.assets\image-20200814115442940.png)
 
 ### jsp的三种注释
 
@@ -414,7 +414,7 @@ jsp注释可以注掉，jsp页面中所有代码
 
 jsp中的内置对象，是指Tomcat在翻译jsp页面称为Servlet源代码后，内部提供的九大对象，就做内置对象。
 
-![image-20200814155841165](C:\Users\张辉\Desktop\javaweb\notes\jsp.assets\image-20200814155841165.png)
+![image-20200814155841165](jsp.assets\image-20200814155841165.png)
 
 | 对象        | 说明               |
 | ----------- | ------------------ |
@@ -500,7 +500,7 @@ response中表示响应，我们经常用于设置返回个客户端的内容（
 
 out也是给用户做输出使用的。
 
-![image-20200814163406493](C:\Users\张辉\Desktop\javaweb\notes\jsp.assets\image-20200814163406493.png)
+![image-20200814163406493](jsp.assets\image-20200814163406493.png)
 
 由于jsp翻译之后，底层源代码都是使用out来进行输出，所以一般请情况下，我们在jsp页面中统一使用out来进行输出。避免打乱页面输出内容的顺序。
 
@@ -577,7 +577,7 @@ out也是给用户做输出使用的。
 
 动态包含的底层原理：
 
-![image-20200814172312779](C:\Users\张辉\Desktop\javaweb\notes\jsp.assets\image-20200814172312779.png)
+![image-20200814172312779](jsp.assets\image-20200814172312779.png)
 
 ### jsp标签-转发
 
@@ -595,7 +595,7 @@ out也是给用户做输出使用的。
 
 jsp输出一个表格，里边有10个学生信息。
 
-![image-20200814182307758](C:\Users\张辉\Desktop\javaweb\notes\jsp.assets\image-20200814182307758.png)
+![image-20200814182307758](jsp.assets\image-20200814182307758.png)
 
 Student类：
 

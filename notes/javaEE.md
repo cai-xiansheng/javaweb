@@ -1,6 +1,6 @@
 # JavaEE项目的三层架构
 
-![image-20200813141743349](C:\Users\张辉\Desktop\javaweb\notes\javaEE.assets\image-20200813141743349.png)
+![image-20200813141743349](javaEE.assets\image-20200813141743349.png)
 
 分层的美与敌就是为了解耦。解耦就是为了降低代码的耦合度，方便项目后期的维护和升级。
 
@@ -402,11 +402,11 @@ public class UserServiceTest {
 
 #### 图解注册流程
 
-![image-20200813184115483](C:\Users\张辉\Desktop\javaweb\notes\javaEE.assets\image-20200813184115483.png)
+![image-20200813184115483](javaEE.assets\image-20200813184115483.png)
 
 #### 修改regist.html和regist_success.html页面
 
-![image-20200813184217938](C:\Users\张辉\Desktop\javaweb\notes\javaEE.assets\image-20200813184217938.png)
+![image-20200813184217938](javaEE.assets\image-20200813184217938.png)
 
 #### 编写RegisterServlet程序
 
@@ -453,13 +453,13 @@ public class RegisterServlet extends HttpServlet {
 
 #### 图解用户登录
 
-![image-20200813184452871](C:\Users\张辉\Desktop\javaweb\notes\javaEE.assets\image-20200813184452871.png)
+![image-20200813184452871](javaEE.assets\image-20200813184452871.png)
 
 #### 修改login.html和login_success.html页面
 
-![image-20200813185916902](C:\Users\张辉\Desktop\javaweb\notes\javaEE.assets\image-20200813185916902.png)
+![image-20200813185916902](javaEE.assets\image-20200813185916902.png)
 
-![image-20200813185923579](C:\Users\张辉\Desktop\javaweb\notes\javaEE.assets\image-20200813185923579.png)
+![image-20200813185923579](javaEE.assets\image-20200813185923579.png)
 
 #### LoginServlet程序
 

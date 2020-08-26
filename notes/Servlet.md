@@ -49,7 +49,7 @@
 
 ## url地址到Servlet的访问
 
-![image-20200812152602804](C:\Users\张辉\Desktop\javaweb\notes\Servlet.assets\image-20200812152602804.png)
+![image-20200812152602804](Servlet.assets\image-20200812152602804.png)
 
 ## Servlet的生命周期
 
@@ -161,15 +161,15 @@ web.xml配置
 
 ## 使用idea创建servlet程序
 
-![image-20200812185139532](C:\Users\张辉\Desktop\javaweb\notes\Servlet.assets\image-20200812185139532.png)
+![image-20200812185139532](Servlet.assets\image-20200812185139532.png)
 
 配置Servlet的信息：
 
-![image-20200812185337447](C:\Users\张辉\Desktop\javaweb\notes\Servlet.assets\image-20200812185337447.png)
+![image-20200812185337447](Servlet.assets\image-20200812185337447.png)
 
 ## Servlet的继承体系
 
-![image-20200812185414478](C:\Users\张辉\Desktop\javaweb\notes\Servlet.assets\image-20200812185414478.png)
+![image-20200812185414478](Servlet.assets\image-20200812185414478.png)
 
 # ServletConfig类
 
@@ -242,7 +242,7 @@ Servlet中的代码：
 
 注意点：
 
-![image-20200812192545246](C:\Users\张辉\Desktop\javaweb\notes\Servlet.assets\image-20200812192545246.png)
+![image-20200812192545246](Servlet.assets\image-20200812192545246.png)
 
 # ServletContext类
 
@@ -326,7 +326,7 @@ Http协议中的数据又叫报文。
 2. 请求头
    1. key:value 组成 键值对	不同键值对，表示不同的含义
 
-![image-20200813081913623](C:\Users\张辉\Desktop\javaweb\notes\Servlet.assets\image-20200813081913623.png)
+![image-20200813081913623](Servlet.assets\image-20200813081913623.png)
 
 ### POST请求
 
@@ -343,7 +343,7 @@ Http协议中的数据又叫报文。
 
 3. 请求体    ===》   就是发送给服务器的数据
 
-![image-20200813083038025](C:\Users\张辉\Desktop\javaweb\notes\Servlet.assets\image-20200813083038025.png)
+![image-20200813083038025](Servlet.assets\image-20200813083038025.png)
 
 ### 常用请求头的说明
 
@@ -379,7 +379,7 @@ POST请求有哪些：
    1. key:value    不同的响应头，有其不同的含义
 3. 响应体 ---》 就是回传给客户端的数据
 
-![image-20200813084730514](C:\Users\张辉\Desktop\javaweb\notes\Servlet.assets\image-20200813084730514.png)
+![image-20200813084730514](Servlet.assets\image-20200813084730514.png)
 
 ## 常用的响应码说明
 
@@ -463,13 +463,13 @@ System.out.println("---------doPost--------");
 
 请求转发是指，服务器收到请求后，从一次资源跳转到另一个资源的操作叫做请求转发。
 
-![image-20200813110915211](C:\Users\张辉\Desktop\javaweb\notes\Servlet.assets\image-20200813110915211.png)
+![image-20200813110915211](Servlet.assets\image-20200813110915211.png)
 
 请求转发只能在WEB下转发。
 
 ## base标签解决请求转发时参照路径
 
-![image-20200813114924478](C:\Users\张辉\Desktop\javaweb\notes\Servlet.assets\image-20200813114924478.png)
+![image-20200813114924478](Servlet.assets\image-20200813114924478.png)
 
 ```html
 <!DOCTYPE html>
@@ -544,7 +544,7 @@ HttpServletResponse类和HttpServletRequest类一样，每次请求进来，Tomc
 
 使用了字节流，就不能使用字符流，反之亦然，否则就会报错。
 
-![image-20200813121908596](C:\Users\张辉\Desktop\javaweb\notes\Servlet.assets\image-20200813121908596.png)
+![image-20200813121908596](Servlet.assets\image-20200813121908596.png)
 
 同时使用了两个响应流，就报错。
 
@@ -587,7 +587,7 @@ resp.setContentType("text/html; charset=utf-8");
 
 请求重定向是指客户端给服务器发请求，然后服务器告诉客户端说。我给你一下地址，你去新地址访问。叫请求重定向（因为之前的地址可能已经被废弃）
 
-![image-20200813124726301](C:\Users\张辉\Desktop\javaweb\notes\Servlet.assets\image-20200813124726301.png)
+![image-20200813124726301](Servlet.assets\image-20200813124726301.png)
 
 请求重定向的第一种方案：
 

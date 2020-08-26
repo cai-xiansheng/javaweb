@@ -107,7 +107,7 @@ JAVA_HOME配置：
 
 + 找到Tomcat目录下的conf目录，找到server.xml配置文件。
 
-![image-20200812122538376](C:\Users\张辉\Desktop\javaweb\notes\Tomcat.assets\image-20200812122538376.png)
+![image-20200812122538376](Tomcat.assets\image-20200812122538376.png)
 
 HTTP协议的默认端口为80端口，80会在地址导航栏会被抹掉
 
@@ -135,7 +135,7 @@ HTTP协议的默认端口为80端口，80会在地址导航栏会被抹掉
 
 ##  手托 html 页面到浏览器和在浏览器中输入 http://ip:端 口号/工程名/访问的区别 
 
-![image-20200812125338311](C:\Users\张辉\Desktop\javaweb\notes\Tomcat.assets\image-20200812125338311.png)
+![image-20200812125338311](Tomcat.assets\image-20200812125338311.png)
 
 ## ROOT的工程的访问，以及默认index.html页面的访问
 
@@ -151,13 +151,13 @@ http://ip:port/工程名/	===>	没有资源名，默认访问**index.html**文�
 
 File | Settings | Build, Execution, Deployment | Application Servers
 
-![image-20200812134021683](C:\Users\张辉\Desktop\javaweb\notes\Tomcat.assets\image-20200812134021683.png)
+![image-20200812134021683](Tomcat.assets\image-20200812134021683.png)
 
 选择相应的版本即可
 
-![image-20200812134428761](C:\Users\张辉\Desktop\javaweb\notes\Tomcat.assets\image-20200812134428761.png)
+![image-20200812134428761](Tomcat.assets\image-20200812134428761.png)
 
-![image-20200812134438443](C:\Users\张辉\Desktop\javaweb\notes\Tomcat.assets\image-20200812134438443.png)
+![image-20200812134438443](Tomcat.assets\image-20200812134438443.png)
 
 # IDEA中动态web工程的操作
 
@@ -165,53 +165,53 @@ File | Settings | Build, Execution, Deployment | Application Servers
 
 1. 创建一个新的模块：
 
-![image-20200812134613847](C:\Users\张辉\Desktop\javaweb\notes\Tomcat.assets\image-20200812134613847.png)
+![image-20200812134613847](Tomcat.assets\image-20200812134613847.png)
 
 2. 选择你要创建什么类型的模块
 
-![image-20200812134644311](C:\Users\张辉\Desktop\javaweb\notes\Tomcat.assets\image-20200812134644311.png)
+![image-20200812134644311](Tomcat.assets\image-20200812134644311.png)
 
 3. 输入模块名，点击finish完成创建
 
 ## Web工程的目录介绍
 
-![image-20200812135041698](C:\Users\张辉\Desktop\javaweb\notes\Tomcat.assets\image-20200812135041698.png)
+![image-20200812135041698](Tomcat.assets\image-20200812135041698.png)
 
 ## 如何给Web工程添加第三方的jar包
 
 1. 可以打开项目结构菜单操作界面，添加一个自己的类库： 
 
-![image-20200812140003789](C:\Users\张辉\Desktop\javaweb\notes\Tomcat.assets\image-20200812140003789.png)
+![image-20200812140003789](Tomcat.assets\image-20200812140003789.png)
 
 2.  添加你你类库需要的 jar 包文件。 
 
-![image-20200812140051024](C:\Users\张辉\Desktop\javaweb\notes\Tomcat.assets\image-20200812140051024.png)
+![image-20200812140051024](Tomcat.assets\image-20200812140051024.png)
 
 3.  选择你添加的类库，给哪个模块使用： 
 
-![image-20200812140118126](C:\Users\张辉\Desktop\javaweb\notes\Tomcat.assets\image-20200812140118126.png)
+![image-20200812140118126](Tomcat.assets\image-20200812140118126.png)
 
 4. 选择 Artifacts 选项，将类库，添加到打包部署中： 
 
-![image-20200812140252519](C:\Users\张辉\Desktop\javaweb\notes\Tomcat.assets\image-20200812140252519.png)
+![image-20200812140252519](Tomcat.assets\image-20200812140252519.png)
 
 ## 如何在IDEA中部署工程到Tomcat上运行
 
 1. 建议修改web工程对应的Tomcat运行实例的名称
 
-![image-20200812141013357](C:\Users\张辉\Desktop\javaweb\notes\Tomcat.assets\image-20200812141013357.png)
+![image-20200812141013357](Tomcat.assets\image-20200812141013357.png)
 
 2.  确认你的 Tomcat 实例中有你要部署运行的 web 工程模块： 
 
-![image-20200812141338680](C:\Users\张辉\Desktop\javaweb\notes\Tomcat.assets\image-20200812141338680.png)
+![image-20200812141338680](Tomcat.assets\image-20200812141338680.png)
 
 3. 还可以修改你的Tomcat实例启动后默认的访问地址
 
-![image-20200812141535938](C:\Users\张辉\Desktop\javaweb\notes\Tomcat.assets\image-20200812141535938.png)
+![image-20200812141535938](Tomcat.assets\image-20200812141535938.png)
 
 ## 配置资源热部署
 
-![image-20200812143446144](C:\Users\张辉\Desktop\javaweb\notes\Tomcat.assets\image-20200812143446144.png)
+![image-20200812143446144](Tomcat.assets\image-20200812143446144.png)
 
 # 
 

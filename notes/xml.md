@@ -101,7 +101,7 @@ xml的主要作用有：
     }
 ```
 
-**需要导入如下jar包**![image-20200812104947397](C:\Users\张辉\Desktop\javaweb\notes\xml.assets\image-20200812104947397.png)
+**需要导入如下jar包**![image-20200812104947397](xml.assets\image-20200812104947397.png)
 
 除过必须要导入的dom4j以外，junit的作用就是一个单元测试用例。
 

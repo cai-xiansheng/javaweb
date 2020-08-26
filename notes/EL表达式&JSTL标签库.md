@@ -106,17 +106,17 @@ public class Person {
 
 ### 关系运算
 
-![image-20200815001832255](C:\Users\张辉\Desktop\javaweb\notes\EL表达式&JSTL标签库.assets\image-20200815001832255.png)
+![image-20200815001832255](EL表达式&JSTL标签库.assets\image-20200815001832255.png)
 
 ### 逻辑运算
 
-![image-20200815001841206](C:\Users\张辉\Desktop\javaweb\notes\EL表达式&JSTL标签库.assets\image-20200815001841206.png)
+![image-20200815001841206](EL表达式&JSTL标签库.assets\image-20200815001841206.png)
 
 ### 算术运算
 
-![image-20200815001859649](C:\Users\张辉\Desktop\javaweb\notes\EL表达式&JSTL标签库.assets\image-20200815001859649.png)
+![image-20200815001859649](EL表达式&JSTL标签库.assets\image-20200815001859649.png)
 
-![image-20200815001910077](C:\Users\张辉\Desktop\javaweb\notes\EL表达式&JSTL标签库.assets\image-20200815001910077.png)
+![image-20200815001910077](EL表达式&JSTL标签库.assets\image-20200815001910077.png)
 
 ### empty运算
 
@@ -130,7 +130,7 @@ empty运算可以判断一个数据是否为空，如果为空，则输出true�
 4. List集合，元素个数为0
 5. Map集合，元素个数为0
 
-![image-20200815004730319](C:\Users\张辉\Desktop\javaweb\notes\EL表达式&JSTL标签库.assets\image-20200815004730319.png)
+![image-20200815004730319](EL表达式&JSTL标签库.assets\image-20200815004730319.png)
 
 ### 三元运算
 
@@ -144,7 +144,7 @@ empty运算可以判断一个数据是否为空，如果为空，则输出true�
 
 并且[]中括号运算，还可以输出**map集合**中key里含有特殊字符的key的值。
 
-![image-20200815004848844](C:\Users\张辉\Desktop\javaweb\notes\EL表达式&JSTL标签库.assets\image-20200815004848844.png)
+![image-20200815004848844](EL表达式&JSTL标签库.assets\image-20200815004848844.png)
 
 ## EL表达式的11个隐含对象
 
@@ -173,7 +173,7 @@ EL表达式中11个隐含对象，是ELb表达式中自己定义的，可以直�
 | sessionScope     | Session域        |
 | applicationScope | ServletContext域 |
 
-![image-20200815011203525](C:\Users\张辉\Desktop\javaweb\notes\EL表达式&JSTL标签库.assets\image-20200815011203525.png)
+![image-20200815011203525](EL表达式&JSTL标签库.assets\image-20200815011203525.png)
 
 ### pageContext对象的使用
 
@@ -185,15 +185,15 @@ EL表达式中11个隐含对象，是ELb表达式中自己定义的，可以直�
 6. 获取客户端ip地址
 7. 获取会话的id编号
 
-![image-20200815011609366](C:\Users\张辉\Desktop\javaweb\notes\EL表达式&JSTL标签库.assets\image-20200815011609366.png)
+![image-20200815011609366](EL表达式&JSTL标签库.assets\image-20200815011609366.png)
 
-![image-20200815011632779](C:\Users\张辉\Desktop\javaweb\notes\EL表达式&JSTL标签库.assets\image-20200815011632779.png)
+![image-20200815011632779](EL表达式&JSTL标签库.assets\image-20200815011632779.png)
 
 ### EL表达式其他隐含对象的使用
 
-![image-20200815012345715](C:\Users\张辉\Desktop\javaweb\notes\EL表达式&JSTL标签库.assets\image-20200815012345715.png)
+![image-20200815012345715](EL表达式&JSTL标签库.assets\image-20200815012345715.png)
 
-![image-20200815012428253](C:\Users\张辉\Desktop\javaweb\notes\EL表达式&JSTL标签库.assets\image-20200815012428253.png)
+![image-20200815012428253](EL表达式&JSTL标签库.assets\image-20200815012428253.png)
 
 # JSTL标签库（次重点）
 
