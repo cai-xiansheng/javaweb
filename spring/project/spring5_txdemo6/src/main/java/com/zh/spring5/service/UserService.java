@@ -3,6 +3,8 @@ package com.zh.spring5.service;
 import com.zh.spring5.dao.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
@@ -11,7 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
  * @create 2020-09-08 13:20
  */
 @Service
-@Transactional()
+@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.REPEATABLE_READ, timeout = -1)
 public class UserService {
 
     // 注入dao
@@ -29,7 +31,7 @@ public class UserService {
             userDao.reduceMoney();
 
             // 模拟异常
-            int i = 10 / 0;
+            //int i = 10 / 0;
 
             userDao.addMoney();
 
