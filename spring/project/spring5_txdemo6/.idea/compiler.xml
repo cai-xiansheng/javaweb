@@ -10,6 +10,6 @@
         <module name="spring5_txdemo1" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="11" />
+    <bytecodeTargetLevel target="8" />
   </component>
 </project>
